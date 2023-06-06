@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<link rel = "stylesheet" href="style.css">
+	<title> My Form </title>
+</head>
+<body>
+	<header>
+		<h1>Database Siswa</h1>
+	</header>
+
+
+
+	<form action="/add" method="POST">
+		<fieldset>
+				<h3>Pendaftaran</h3>
+				<label>ID Siswa</label>
+				<input type ="text" id = 'id' name="id" placeholder="1,2,3..." required>
+				<br><br>
+
+				<label>Nama</label>
+				<input type="text" id = "Nama" name="Nama" placeholder="Tom Cruise" required>
+				<br><br>
+
+				<label>Password</label>
+				<input type="password" id = "Password" name="Password" placeholder="" required>
+				<br><br>
+
+				<button type ="reset">Reset</button>
+				<button type ="submit">Submit</button>
+		</fieldset>
+	</form>
+	<footer>
+		<hr>
+		<h4>Please enter 'http://localhost:3000/close' to close the database connection before closing this window</h4>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title%></title>
+</head>
+<body>
+    <h2>
+
+    </h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nomer</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% data.forEach((siswa,index)=>{ %>
+        <tr>
+            <td><%= index +1 %></td>
+            <td><%= siswa.name %></td>
+            <td><%= siswa.email %></td>
+            <td><%= siswa.role %></td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>
+</body>
+</html>

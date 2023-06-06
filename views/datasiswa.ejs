@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title%></title>
+</head>
+<body>
+    <h2>
+
+    </h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nama</th>
+            <th>Password</th>
+            <th>Role</th>
+            <th>Tanggal Lahir</th>
+            <th>Kelas</th>
+            <th>Alamat</th>
+            <th>Tempat</th>
+            <th>No HP</th>
+            <th>Nama Ortu</th>
+            <th>No HP Ortu</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% data.forEach((siswa,index)=>{ %>
+        <tr>
+            <td><%= index +1 %></td>
+            <td><%= siswa.Nama %></td>
+            <td><%= siswa.Password %></td>
+            <td><%= siswa.Role %></td>
+            <td><%= siswa.Tanggal_Lahir %></td>
+            <td><%= siswa.Kelas %></td>
+            <td><%= siswa.Alamat %></td>
+            <td><%= siswa.Tempat %></td>
+            <td><%= siswa.No_HP %></td>
+            <td><%= siswa.Nama_Ortu %></td>
+            <td><%= siswa.No_HP_Ortu %></td>
+            <td>
+                <a class="a-href" href="/siswa-edit/<%= siswa.id %>">Edit</a>
+                <a class="a-href" 
+                href="/siswa/delete/<%= siswa.id %>"
+                onclick="return confirm('Apakah Anda yakin ingin menghapus?')">
+                Hapus</a>
+            </td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+<h2>Tambah Data Siswa</h2>
+<form action="siswa/register" method="POST">
+    <label>Nama:</label>
+    <input type="text" id="name" name="nameDefault" value="<%= data.name %>" required />
+    <label>Email:</label>
+    <input type="text" id="email" email="email" value="<%= data.email %>" required />
+    <label>Password:</label>
+    <input type="text" id="password" password="password" value="<%= data.password %>" required />
+    <label>Role</label>
+    <input type="text" id="Role" Role="Role" value="<%= data.role %>" required />
+    <button type="submit">Tambah</button>
+</form>
+</body>
+</html>

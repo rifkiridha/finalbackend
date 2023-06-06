@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= item%>
+    </title>
+</head>
+
+<body>
+    <h2>
+
+    </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nomer</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach((siswa,index)=>{ %>
+                <tr>
+                    <td>
+                        <%= index +1 %>
+                    </td>
+                    <td>
+                        <%= siswa.name %>
+                    </td>
+                    <td>
+                        <%= siswa.email %>
+                    </td>
+                    <td>
+                        <%= siswa.role %>
+                    </td>
+                    <td>
+                        <a class="a-href" href="/siswa/get/edit/<%= siswa.id %>">Edit</a>
+                        <a class="a-href" 
+                        href="/siswa/delete/<%= siswa.id %>"
+                        onclick="return confirm('Apakah Anda yakin ingin menghapus?')">
+                        Hapus</a>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+    <h2>Tambah Data Siswa</h2>
+    <form action="/siswa/register" method="POST">
+        <label>Nama:</label>
+        <input type="text" id="nameDefault" name="nameDefault" required />
+        <label>Email:</label>
+        <input type="text" id="email" email="email" required />
+        <label>Password:</label>
+        <input type="text" id="password" password="password" required />
+        <label>Role</label>
+        <input type="text" id="Role" Role="Role" required />
+    </form>
+</body>
+
+</html>
