@@ -22,21 +22,6 @@ router.get('/login',siswaController.getLogin);
   router.post('/add', function(req,res){
   console.log("Connected!");
   console.log(req.body);
-  const schema = joi.object({
-    Nama: joi.string().min(3).required(),
-    Role: joi.string(),
-    Password: joi.string().min(8).required(),
-});
-
-const { error } = schema.validate(req.body);
-
-if (error) return res.status(400).send({
-    message: error.details[0].message
-});
-
-
-const hashedPassword = bcrypt.hash(req.body.Password, 10);
-console.log("hashed password :"+hashedPassword);
 
   var sql = `INSERT INTO siswas (id, Nama, Password, Role, Tanggal_Lahir, Kelas, Alamat, Tempat, No_HP, Nama_Ortu, No_HP_Ortu) VALUES (${req.body.id}, '${req.body.Nama}', '${req.body.Password}', '${req.body.Role}', '${req.body.Tanggal_Lahir}', '${req.body.Kelas}', '${req.body.Alamat}', '${req.body.Tempat}', ${req.body.No_HP}, '${req.body.Nama_Ortu}', ${req.body.No_HP_Ortu})`;
   con.query(sql, function (err, result) {
